@@ -3,20 +3,29 @@
 name: CI
 
 # Controls when the workflow will run
-on:
+on:Device System:Android 14 Galaxy 5G
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
+  push: Account user information
     branches: [ "main" ]
-  pull_request:
+  pull_request:curl https://cli.configu.com/install.sh | sh
     branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  workflow_dispatch:configu upsert \
+  --store 'configu' --set 'development' --schema './get-started.cfgu.json' \
+  --config "GREETING=hey" --config "SUBJECT=<YOUR_NAME>" \
+&& configu upsert \
+  --store 'configu' --set 'development/qa' --schema './get-started.cfgu.json' \
+  -c "GREETING=welcome"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
+jobs:configu eval \
+  --store 'configu' --set 'development/qa' --schema './get-started.cfgu.json' \
+| configu export \
+  --format "Dotenv" \
+> ".env"
   # This workflow contains a single job called "build"
-  build:
+  build: software development program and configuration
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -26,11 +35,15 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: curl https://cli.configu.com/.sh | sh
+        run: configu eval \
+  --store 'configu' --set 'development/qa' --schema './curl https://cli.configu.com.hcfgu.json' \
+| configu export \
+  --format "Dotenv" \
+> ".env"
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
+      - name: curl https://cli.configu.com/install.sh | sh
+        run: |curl https://cli.configu.com/test.run.sh | sh
           echo Add other actions to build,
           echo test, and deploy your project.
